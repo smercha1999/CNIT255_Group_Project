@@ -3,10 +3,10 @@ public class Video extends Artifact{
     private int VideoID;
     private String Director;
     
-    public Video (String t, String cfn, String cln, String d, int i, int ImageID, String Location)
+    public Video (String t, String cfn, String cln, String d, int i, int VidepID, String Director)
     {
         super(t,cfn,cln,d,i);
-        this.VideoID = ImageID;
+        this.VideoID = VideoID;
         this.Director=Director;
         
     }

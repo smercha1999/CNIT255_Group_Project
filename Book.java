@@ -1,4 +1,4 @@
-public class Book extends Artifact{
+public class Book extends Artifact implements book_review{
     private String ISBN;
     private String ISBN13;
     
@@ -36,6 +36,18 @@ public class Book extends Artifact{
         this.ISBN13 = ISBN13;
     }
 
-    
+public void ratingScore()
+{
+    int score = 0;
+    score=10;
+    System.out.println(score);
+}
+
+    @Override
+    public void ratingCount() {
+        int count = 0;
+        count = 1000;
+        System.out.println(count);
+    }
 }
 
