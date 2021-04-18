@@ -8,16 +8,16 @@ public class welcome_page {
     private JButton imagesButton;
     private JButton videosButton;
     private JPanel panel;
-}
-/*
+
+
     public welcome_page() {
 
         booksButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JOptionPane.showMessageDialog(null,"Hello World");
-        });
-    }
+        }
+    });
 }
 
     public static void main(String[] args) {
@@ -28,4 +28,3 @@ public class welcome_page {
         frame.setVisible(true);
     }
 }
-*/
