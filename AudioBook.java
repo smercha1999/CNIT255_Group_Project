@@ -1,7 +1,7 @@
 public class AudioBook extends Book{
     private String narrator;
     private String link;
-    private int length;
+    private double length;
     
     public AudioBook(String t, String cfn, String cln, String d, int i, String ISBN, String ISBN13, String narrator, String link, int length){
         super (t,cfn,cln,d,i,ISBN,ISBN13);
