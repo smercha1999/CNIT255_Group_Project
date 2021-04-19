@@ -7,7 +7,11 @@ public class Book extends Artifact implements book_review{
         this.ISBN = ISBN;
         this.ISBN13 = ISBN13;
     }
-    
+
+    public Book() {
+        super();
+    }
+
     /**
      * @return the ISBN
      */

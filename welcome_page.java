@@ -15,7 +15,8 @@ public class welcome_page {
         booksButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null,"Hello World");
+
+
         }
     });
 }

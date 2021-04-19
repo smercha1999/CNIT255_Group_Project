@@ -17,6 +17,11 @@ public class Artifact {
         dateOfCreation = d;
         ID = i;
     }
+
+    public Artifact() {
+
+    }
+
     /**
      * @return the title
      */

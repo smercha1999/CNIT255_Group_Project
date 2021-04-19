@@ -10,7 +10,11 @@ public class Image extends Artifact{
         this.Location=Location;
         
     }
-    
+
+    public Image() {
+
+    }
+
     //return and set imageID methods
     
     public int getImageID() {
