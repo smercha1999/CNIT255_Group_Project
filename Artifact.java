@@ -6,8 +6,8 @@ public class Artifact {
     private String dateOfCreation;
     private int ID;
     private String borrowerID;
-    private String borrowerFirstName;
-    private String borrowerLastName;
+    //private String borrowerFirstName;
+    //private String borrowerLastName;
     private Boolean isAvailable = true;
 
     public Artifact(String t, String cfn, String cln, String d, int i){
