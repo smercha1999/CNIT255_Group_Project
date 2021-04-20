@@ -6,7 +6,7 @@ public class Image extends Artifact{
     public Image (String t, String cfn, String cln, String d, int i, String Location)
     {
         super(t,cfn,cln,d,i);
-        this.ImageID = ImageID;
+        
         this.Location=Location;
         
     }
