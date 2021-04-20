@@ -1,9 +1,9 @@
 //Author Matthew Clark
 public class Image extends Artifact{
-    private int ImageID;
+   
     private String Location;
     
-    public Image (String t, String cfn, String cln, String d, int i, int ImageID, String Location)
+    public Image (String t, String cfn, String cln, String d, int i, String Location)
     {
         super(t,cfn,cln,d,i);
         this.ImageID = ImageID;
