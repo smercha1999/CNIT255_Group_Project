@@ -40,11 +40,17 @@ public class test extends Book{
         Book AudioBookD = new AudioBook("Flight", "Sherman", "Alexie", "2007", 1004, "9780802170378", "9781435228177", "Adam Beach", "www.audible.com/pd/Flight-Audiobook/B002VA9VNE", 4.41);
 
          */
-        
+        //Images
        /*
        Image ImageA = new Image("The Terror of War","Nick',"Ut","1972",8001,"Vietnam");
        Image ImageB = new Image("Lunch Atop A Skyscraper","Unknown","Unknown","1932",8002,"New York City");
        Image ImageC = new Image("Tank Man","Jeff","Widener","1989",8003,"China");
        */
+        //Videos
+        /*
+        Video VideoA = new Video("The Godfather","Mario","Puzo","1972",9001,"Coppola");
+        Video VideoB = new Video("Citizen Kane","Orson","Welles","1941",9002,"Welles");
+        Video VideoC = new Video("Pulp Fiction","Quentin","Tarantino","1994",9003,"Tarantino");
+        */
     }
 }
