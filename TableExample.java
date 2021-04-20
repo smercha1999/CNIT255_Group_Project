@@ -1,4 +1,6 @@
 import javax.swing.*;
+import java.util.ArrayList;
+
 public class TableExample extends Book implements book_review{
     JFrame f;
     JPanel x;
@@ -8,6 +10,10 @@ public class TableExample extends Book implements book_review{
         Book EBookB = new Ebook("The Kite Runner", "Khaled", "Hosseini", "2003", 1002, "9781594631931", "9781573222457", "mrsmeganparrish.weebly.com/uploads/3/8/0/5/38056115/the_kite_runner.pdf");
         Book EBookC = new Ebook("Feed", "M.T.", "Aderson", "2002", 1003, "9780763662622", "9780763622596", "www.amazon.com/Feed-M-T-Anderson-ebook/dp/B003KVKW9U");
         Book EBookD = new Ebook("Flight", "Sherman", "Alexie", "2007", 1004, "9780802170378", "9781435228177", "amazon.com/Flight-Novel-Sherman-Alexie-ebook/dp/B00FEZ25IQ");
+        //Image ImageA = new Image();
+        //ImageA.setImageID(10);
+        ArrayList<Image> images = new ArrayList<>();
+        //images
         f=new JFrame();
         String data[][]={ {EBookA.getTitle(),EBookA.getCreatorFirstName(),EBookA.getCreatorLastName(),EBookA.getDateOfCreation(),EBookA.getISBN(),EBookA.getISBN13()},
                 {EBookA.getTitle(),EBookB.getCreatorFirstName(),EBookB.getCreatorLastName(),EBookB.getDateOfCreation(),EBookB.getISBN(),EBookB.getISBN13()},
