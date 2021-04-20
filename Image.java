@@ -15,15 +15,7 @@ public class Image extends Artifact{
 
     }
 
-    //return and set imageID methods
-    
-    public int getImageID() {
-       return ImageID;
-    }
-    
-    public void setImageID(int ImageID) {
-        this.ImageID = ImageID;
-    }
+  
     
     //return and set Location Methods
     
