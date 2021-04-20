@@ -45,5 +45,6 @@ public class test extends Book{
        Image ImageA = new Image("The Terror of War","Nick',"Ut","1972",8001,"Vietnam");
        Image ImageB = new Image("Lunch Atop A Skyscraper","Unknown","Unknown","1932",8002,"New York City");
        Image ImageC = new Image("Tank Man","Jeff","Widener","1989",8003,"China");
+       */
     }
 }
