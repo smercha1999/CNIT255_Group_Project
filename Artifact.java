@@ -112,6 +112,7 @@ public class Artifact {
     /**
      * @return the borrowerFirstName
      */
+    /*
     public String getBorrowerFirstName() {
         return borrowerFirstName;
     }
@@ -119,6 +120,7 @@ public class Artifact {
     /**
      * @param borrowerFirstName the borrowerFirstName to set
      */
+    /*
     public void setBorrowerFirstName(String borrowerFirstName) {
         this.borrowerFirstName = borrowerFirstName;
     }
@@ -126,6 +128,7 @@ public class Artifact {
     /**
      * @return the borrowerLastName
      */
+    /*
     public String getBorrowerLastName() {
         return borrowerLastName;
     }
@@ -133,6 +136,7 @@ public class Artifact {
     /**
      * @param borrowerLastName the borrowerLastName to set
      */
+    /*
     public void setBorrowerLastName(String borrowerLastName) {
         this.borrowerLastName = borrowerLastName;
     }
@@ -140,7 +144,7 @@ public class Artifact {
     public String getBorrowerName(){
         return borrowerFirstName + " " + borrowerLastName;
     }
-
+*/
     /**
      * @return the isAvailable
      */

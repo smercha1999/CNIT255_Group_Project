@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -10,6 +11,7 @@ public class welcome_page extends Book implements book_review{
     private JPanel panel;
     private JButton videosButton;
     private JButton Videos;
+    private JButton borrowerInfoButton;
 
 
     public welcome_page() {
@@ -19,13 +21,16 @@ public class welcome_page extends Book implements book_review{
             public void actionPerformed(ActionEvent e) {
                 JFrame newframe = new JFrame();
                 Book EBookA = new Ebook("Creative Confidence", "Tom", "Kelley",  "2013", 1001, "9780385349369",  "9780007517978", "web.a.ebscohost.com/ehost/ebookviewer/ebook?sid=d0dcc184-89e5-4364-86f4-ea23d2dfd966%40sdc-v-sessmgr01&vid=0&format=EK");
+                EBookA.setBorrowerID("1");
                 Book EBookB = new Ebook("The Kite Runner", "Khaled", "Hosseini", "2003", 1002, "9781594631931", "9781573222457", "mrsmeganparrish.weebly.com/uploads/3/8/0/5/38056115/the_kite_runner.pdf");
+                EBookB.setBorrowerID("2");
                 Book EBookC = new Ebook("Feed", "M.T.", "Aderson", "2002", 1003, "9780763662622", "9780763622596", "www.amazon.com/Feed-M-T-Anderson-ebook/dp/B003KVKW9U");
+                EBookC.setBorrowerID("3");
                 Book EBookD = new Ebook("Flight", "Sherman", "Alexie", "2007", 1004, "9780802170378", "9781435228177", "amazon.com/Flight-Novel-Sherman-Alexie-ebook/dp/B00FEZ25IQ");
-                String data[][]={ {EBookA.getTitle(),EBookA.getCreatorFirstName(),EBookA.getCreatorLastName(),EBookA.getDateOfCreation(),EBookA.getISBN(),EBookA.getISBN13()},
-                        {EBookA.getTitle(),EBookB.getCreatorFirstName(),EBookB.getCreatorLastName(),EBookB.getDateOfCreation(),EBookB.getISBN(),EBookB.getISBN13()},
-                        {EBookC.getTitle(),EBookC.getCreatorFirstName(),EBookC.getCreatorLastName(),EBookC.getDateOfCreation(),EBookC.getISBN(),EBookC.getISBN13()}};
-                String column[]={"Title","Author First Name","Author Last Name", "Date", "ISBN","ISBN13"};
+                String data[][]={ {EBookA.getTitle(),EBookA.getCreatorFirstName(),EBookA.getCreatorLastName(),EBookA.getDateOfCreation(),EBookA.getISBN(),EBookA.getISBN13(), EBookA.getBorrowerID()},
+                        {EBookA.getTitle(),EBookB.getCreatorFirstName(),EBookB.getCreatorLastName(),EBookB.getDateOfCreation(),EBookB.getISBN(),EBookB.getISBN13(),EBookB.getBorrowerID()},
+                        {EBookC.getTitle(),EBookC.getCreatorFirstName(),EBookC.getCreatorLastName(),EBookC.getDateOfCreation(),EBookC.getISBN(),EBookC.getISBN13(),EBookC.getBorrowerID()}};
+                String column[]={"Title","Author First Name","Author Last Name", "Date", "ISBN","ISBN13","Borrower ID"};
                 JTable jt=new JTable(data,column);
                 jt.setBounds(30,40,700,300);
                 JScrollPane sp=new JScrollPane(jt);
@@ -47,9 +52,50 @@ public class welcome_page extends Book implements book_review{
                         {ImageB.getTitle(),ImageB.getCreatorName(),ImageB.getDateOfCreation()},
                         {ImageC.getTitle(),ImageC.getCreatorName(),ImageC.getDateOfCreation()}};
                 String imagecolumn[]={"Title","Creators Name","Date of Creation"};
+                DefaultTableModel model = new DefaultTableModel();
+                JTable imageTable = new JTable(model);
+                model.addColumn("Title");
+                model.addColumn("Creators Name");
+                model.addColumn("Date of Creation");
+                model.addRow(new Object[]{ImageA.getTitle(), ImageA.getCreatorName(),ImageA.getDateOfCreation()});
+                model.addRow(new Object[]{ImageB.getTitle(), ImageB.getCreatorName(),ImageB.getDateOfCreation()});
+                model.addRow(new Object[]{ImageC.getTitle(), ImageC.getCreatorName(),ImageC.getDateOfCreation()});
                 JTable jt=new JTable(imagedata,imagecolumn);
-                jt.setBounds(30,40,700,300);
-                JScrollPane sp=new JScrollPane(jt);
+                JButton b=new JButton("Add Books");
+                b.setBounds(50,100,95,30);
+                b.addActionListener(new ActionListener(){
+                    public void actionPerformed(ActionEvent e){
+                        Boolean condition = false;
+                        String input = "";
+                        JButton enterBook = new JButton("Enter");
+                        enterBook.setBounds(50,30,95,30);
+                        JFrame addbookframe = new JFrame();
+                        JTextField InputMenu = new JTextField();
+                        JTextField OutputMenu = new JTextField();
+                        OutputMenu.setBounds(50,100,200,30);
+                        InputMenu.setBounds(50,50,200,30);
+                        addbookframe.add(enterBook);
+                        addbookframe.add(OutputMenu);
+                        addbookframe.add(InputMenu);
+                        addbookframe.setSize(800,400);
+                        addbookframe.setVisible(true);
+                        enterBook.addActionListener(new ActionListener() {
+                            public void actionPerformed(ActionEvent e) {
+                                String input = InputMenu.getText();
+                            }
+                        });
+                        while(condition != true) {
+                            OutputMenu.setText("Please enter the Image Title in the text below");
+                            //OutputMenu.setText("Please enter the");
+                            OutputMenu.setText("hell");
+                            condition=true;
+                        }
+                    }
+                });
+                imageTable.setBounds(30,40,700,300);
+                JScrollPane sp=new JScrollPane(imageTable);
+                //imageframe.add(sp);
+                imageframe.add(b);
                 imageframe.add(sp);
                 imageframe.setSize(800,400);
                 imageframe.setVisible(true);
@@ -77,6 +123,12 @@ public class welcome_page extends Book implements book_review{
             }
         });
         physicalBooksButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        borrowerInfoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
