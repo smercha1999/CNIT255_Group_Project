@@ -1,8 +1,12 @@
-//Author Matthew Clark
+
 public class Video extends Artifact{
  
     private String Director;
-    
+
+    public Video(){
+        super(null,null,null,null,-1);
+        this.Director=null;
+    }
     public Video (String t, String cfn, String cln, String d, int i, String Director)
     {
         super(t,cfn,cln,d,i);
