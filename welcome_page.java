@@ -1,5 +1,6 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -30,10 +31,45 @@ public class welcome_page extends Book implements book_review{
                 String data[][]={ {EBookA.getTitle(),EBookA.getCreatorFirstName(),EBookA.getCreatorLastName(),EBookA.getDateOfCreation(),EBookA.getISBN(),EBookA.getISBN13(), EBookA.getBorrowerID()},
                         {EBookA.getTitle(),EBookB.getCreatorFirstName(),EBookB.getCreatorLastName(),EBookB.getDateOfCreation(),EBookB.getISBN(),EBookB.getISBN13(),EBookB.getBorrowerID()},
                         {EBookC.getTitle(),EBookC.getCreatorFirstName(),EBookC.getCreatorLastName(),EBookC.getDateOfCreation(),EBookC.getISBN(),EBookC.getISBN13(),EBookC.getBorrowerID()}};
-                String column[]={"Title","Author First Name","Author Last Name", "Date", "ISBN","ISBN13","Borrower ID"};
-                JTable jt=new JTable(data,column);
-                jt.setBounds(30,40,700,300);
-                JScrollPane sp=new JScrollPane(jt);
+                DefaultTableModel model = new DefaultTableModel();
+                JTable bookTable = new JTable(model);
+                model.addColumn("Title");
+                model.addColumn("Author Full Name");
+                model.addColumn("Date");
+                model.addColumn("ISBN");
+                model.addColumn("ISBN 13");
+                model.addColumn("Borrower ID");
+                model.addRow(new Object[]{EBookA.getTitle(),EBookA.getCreatorName(), EBookA.getDateOfCreation(),EBookA.getISBN(),EBookA.getISBN13(), EBookA.getBorrowerID()});
+                model.addRow(new Object[]{EBookB.getTitle(),EBookB.getCreatorName(), EBookB.getDateOfCreation(),EBookB.getISBN(),EBookB.getISBN13(), EBookB.getBorrowerID()});
+                model.addRow(new Object[]{EBookC.getTitle(),EBookC.getCreatorName(), EBookC.getDateOfCreation(),EBookC.getISBN(),EBookC.getISBN13(), EBookC.getBorrowerID()});
+                JButton b=new JButton("Add Books");
+                JButton removeBooks = new JButton("Remove Books");
+                removeBooks.setBounds(300,100,95,30);
+                b.setBounds(50,100,95,30);
+                b.addActionListener(new ActionListener(){
+                    public void actionPerformed(ActionEvent e) {
+                        Book newBook = new Book();
+                        newBook.setTitle(JOptionPane.showInputDialog("Please Enter the Image Title"));
+                        newBook.setCreatorFirstName(JOptionPane.showInputDialog("Please Enter the Creators First Name"));
+                        newBook.setCreatorLastName(JOptionPane.showInputDialog("Please Enter the Creators Last Name"));
+                        newBook.setDateOfCreation(JOptionPane.showInputDialog("Please Enter the Date of Creation"));
+                        newBook.setISBN(JOptionPane.showInputDialog("Please Enter the ISBN"));
+                        newBook.setISBN13(JOptionPane.showInputDialog("Please Enter the ISBN 13"));
+                        model.addRow(new Object[]{newBook.getTitle(), newBook.getCreatorName(),newBook.getDateOfCreation(),newBook.getISBN(),getISBN13()});
+                    }});
+                removeBooks.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if(bookTable.getSelectedRow() != -1) {
+                            // remove selected row from the model
+                            model.removeRow(bookTable.getSelectedRow());
+                            JOptionPane.showMessageDialog(null, "Selected row deleted successfully");
+                        }
+                    }});
+                bookTable.setBounds(30,40,700,300);
+                JScrollPane sp=new JScrollPane(bookTable);
+                newframe.add(b);
+                newframe.add(removeBooks);
                 newframe.add(sp);
                 newframe.setSize(800,400);
                 newframe.setVisible(true);
@@ -61,41 +97,33 @@ public class welcome_page extends Book implements book_review{
                 model.addRow(new Object[]{ImageB.getTitle(), ImageB.getCreatorName(),ImageB.getDateOfCreation()});
                 model.addRow(new Object[]{ImageC.getTitle(), ImageC.getCreatorName(),ImageC.getDateOfCreation()});
                 JTable jt=new JTable(imagedata,imagecolumn);
-                JButton b=new JButton("Add Books");
+                JButton b=new JButton("Add Images");
+                JButton removeImages = new JButton("Remove Images");
+                removeImages.setBounds(300,100,95,30);
                 b.setBounds(50,100,95,30);
                 b.addActionListener(new ActionListener(){
-                    public void actionPerformed(ActionEvent e){
-                        Boolean condition = false;
-                        String input = "";
-                        JButton enterBook = new JButton("Enter");
-                        enterBook.setBounds(50,30,95,30);
-                        JFrame addbookframe = new JFrame();
-                        JTextField InputMenu = new JTextField();
-                        JTextField OutputMenu = new JTextField();
-                        OutputMenu.setBounds(50,100,200,30);
-                        InputMenu.setBounds(50,50,200,30);
-                        addbookframe.add(enterBook);
-                        addbookframe.add(OutputMenu);
-                        addbookframe.add(InputMenu);
-                        addbookframe.setSize(800,400);
-                        addbookframe.setVisible(true);
-                        enterBook.addActionListener(new ActionListener() {
-                            public void actionPerformed(ActionEvent e) {
-                                String input = InputMenu.getText();
-                            }
-                        });
-                        while(condition != true) {
-                            OutputMenu.setText("Please enter the Image Title in the text below");
-                            //OutputMenu.setText("Please enter the");
-                            OutputMenu.setText("hell");
-                            condition=true;
+                    public void actionPerformed(ActionEvent e) {
+                        Image newImage = new Image();
+                        newImage.setTitle(JOptionPane.showInputDialog("Please Enter the Image Title"));
+                        newImage.setCreatorFirstName(JOptionPane.showInputDialog("Please Enter the Creators First Name"));
+                        newImage.setCreatorLastName(JOptionPane.showInputDialog("Please Enter the Creators Last Name"));
+                        newImage.setDateOfCreation(JOptionPane.showInputDialog("Please Enter the Date of Creation"));
+                        model.addRow(new Object[]{newImage.getTitle(), newImage.getCreatorName(),newImage.getDateOfCreation()});
+                    }});
+                removeImages.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if(imageTable.getSelectedRow() != -1) {
+                            // remove selected row from the model
+                            model.removeRow(imageTable.getSelectedRow());
+                            JOptionPane.showMessageDialog(null, "Selected row deleted successfully");
                         }
-                    }
-                });
+                }});
                 imageTable.setBounds(30,40,700,300);
                 JScrollPane sp=new JScrollPane(imageTable);
                 //imageframe.add(sp);
                 imageframe.add(b);
+                imageframe.add(removeImages);
                 imageframe.add(sp);
                 imageframe.setSize(800,400);
                 imageframe.setVisible(true);
