@@ -1,8 +1,13 @@
 public class PhysicalBook extends Book{
-    private int copiesAvailable;
+    private String copiesAvailable;
     private String location;
-    
-   public PhysicalBook(String t, String cfn, String cln, String d, int i, String ISBN, String ISBN13, int copiesAvailable, String location){
+
+    public PhysicalBook(){
+        super(null,null,null,null,-1,null,null);
+        this.copiesAvailable = null;
+        this.location = null;
+    }
+   public PhysicalBook(String t, String cfn, String cln, String d, int i, String ISBN, String ISBN13, String copiesAvailable, String location){
         super(t,cfn,cln,d,i,ISBN,ISBN13);
         this.copiesAvailable = copiesAvailable;
         this.location = location;
@@ -11,14 +16,14 @@ public class PhysicalBook extends Book{
     /**
      * @return the copiesAvailable
      */
-    public int getCopiesAvailable() {
-        return copiesAvailable;
+    public String getCopiesAvailable() {
+        return String.valueOf(copiesAvailable);
     }
 
     /**
      * @param copiesAvailable the copiesAvailable to set
      */
-    public void setCopiesAvailable(int copiesAvailable) {
+    public void setCopiesAvailable(String copiesAvailable) {
         this.copiesAvailable = copiesAvailable;
     }
 
